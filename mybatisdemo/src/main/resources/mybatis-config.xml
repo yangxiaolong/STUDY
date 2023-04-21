@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 引入dtd约束文件 -->
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 设置mysql数据库的连接属性-->
+    <properties>
+        <property name="driver" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/yxl?serverTimezone=GMT%2B8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
+    </properties>
+
+    <!-- 连接环境-->
+    <!-- 环境，可以配置多个，default：指定采用哪个环境 -->
+    <environments default="development">
+        <!-- id：唯一标识 -->
+        <environment id="development">
+            <!-- 事务管理器，JDBC类型的事务管理器 -->
+            <transactionManager type="JDBC"/>
+            <!-- 数据源，池类型的数据源 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/> <!-- 配置了properties，所以可以直接引用 -->
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 配置mappers映射文件-->
+    <mappers>
+        <!-- 逐个注册-->
+        <mapper resource="mappers/UserMapper.xml"/>
+    </mappers>
+
+</configuration>

@@ -1,0 +1,10 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.linyh.com/schema/user"
+            elementFormDefault="qualified">
+    <xsd:element name="user">
+        <xsd:complexType>
+            <xsd:attribute name="id" type="xsd:integer"/>
+            <xsd:attribute name="name" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
