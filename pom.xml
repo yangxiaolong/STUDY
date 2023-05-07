@@ -22,6 +22,7 @@
         <module>mybatisdemo</module>
         <module>nettypro</module>
         <module>springdemo</module>
+        <module>zk</module>
     </modules>
 
     <properties>
