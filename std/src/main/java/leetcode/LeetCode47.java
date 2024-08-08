@@ -32,27 +32,31 @@ public class LeetCode47 {
 
 
     public List<List<Integer>> permuteUnique(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
-        Arrays.sort(nums); // 对数组进行排序
-        boolean[] used = new boolean[nums.length]; // 用来标记是否使用过
-        backtrack(result, new ArrayList<>(), nums, used);
-        return result;
+        List<List<Integer>> rst = new ArrayList<>();
+        Arrays.sort(nums);
+        backtrace(rst, new ArrayList<>(), nums, new boolean[nums.length]);
+        return rst;
     }
 
-    private void backtrack(List<List<Integer>> result, List<Integer> tempList, int[] nums, boolean[] used) {
-        if (tempList.size() == nums.length) {
-            result.add(new ArrayList<>(tempList));
-        } else {
-            for (int i = 0; i < nums.length; i++) {
-                // 如果该数字被使用过 或者 当前数字和前一个数字相同并且前一个数字未被使用过（跳过重复）
-                if (used[i] || (i > 0 && nums[i] == nums[i - 1] && !used[i - 1])) continue;
+    private void backtrace(List<List<Integer>> rst, ArrayList<Integer> tmp, int[] nums, boolean[] used) {
+        if (tmp.size() == nums.length) {
+            rst.add(new ArrayList<>(tmp));//深度拷贝
+            return;
+        }
 
-                used[i] = true;
-                tempList.add(nums[i]);
-                backtrack(result, tempList, nums, used);
-                used[i] = false;
-                tempList.remove(tempList.size() - 1);
+        for (int i = 0; i < nums.length; i++) {
+            if (used[i]) {
+                continue;
             }
+            if ((i > 0 && nums[i] == nums[i - 1] && !used[i - 1])) {// 有三个条件
+                continue;
+            }
+
+            used[i] = true;
+            tmp.add(nums[i]);
+            backtrace(rst, tmp, nums, used);
+            used[i] = false;
+            tmp.remove(tmp.size() - 1);
         }
     }
 
