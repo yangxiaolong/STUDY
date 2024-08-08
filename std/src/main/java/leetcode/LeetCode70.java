@@ -44,27 +44,62 @@ public class LeetCode70 {
         cache[1] = 1;
         cache[2] = 2;
 
-        int n_1 = putIfAbsent(n - 1, cache);
-        int n_2 = putIfAbsent(n - 2, cache);
+        int n_1 = computeIfAbsent(n - 1, cache);
+        int n_2 = computeIfAbsent(n - 2, cache);
         return n_1 + n_2;
     }
 
-    public int putIfAbsent(int n, int[] cache) {
+    public int computeIfAbsent(int n, int[] cache) {
         int num = cache[n];
         if (num != 0) {
             return num;
         } else {
-            int n_1 = putIfAbsent(n - 1, cache);
-            int n_2 = putIfAbsent(n - 2, cache);
+            int n_1 = computeIfAbsent(n - 1, cache);
+            int n_2 = computeIfAbsent(n - 2, cache);
             num = n_1 + n_2;
             cache[n] = num;
         }
         return num;
     }
 
+    public int climbStairs2(int n) {
+        if (n == 1) return 1;
+        if (n == 2) return 2;
+
+        // 创建一个数组用于存储中间结果
+        int[] dp = new int[n + 1];
+
+        // 初始化前两个值
+        dp[0] = 1;
+        dp[1] = 1;
+
+        // 计算从第 2 个到第 n 个斐波那契数
+        for (int i = 2; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+
+        // 返回第 n 个斐波那契数
+        return dp[n];
+    }
+
+    public int climbStairs3(int n) {
+        if (n == 1) return 1;
+        if (n == 2) return 2;
+
+        int sum = 0;
+        int dp1 = 1;
+        int dp2 = 2;
+        for (int i = 3; i <= n; i++) {
+            sum = dp1 + dp2;
+            dp1 = dp2;
+            dp2 = sum;
+        }
+        return sum;
+    }
+
     public static void main(String[] args) {
         LeetCode70 leetCode70 = new LeetCode70();
-        System.out.println(leetCode70.climbStairs(2));
+        System.out.println(leetCode70.climbStairs3(2));
     }
 
 }
