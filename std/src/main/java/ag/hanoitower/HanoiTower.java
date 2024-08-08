@@ -24,7 +24,7 @@ public class HanoiTower {
     }
 
     private static void move(int num, char a, char c) {
-        System.out.println((step++) + "步" + "第" + num + "个盘从 " + a + "-> " + c);
+        System.out.println("第" + (step++) + "步 " + "第" + num + "个盘从 " + a + " -> " + c);
     }
 
 }

@@ -9,11 +9,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class Calculate {
 
-	@Autowired
-	private DoCalculate doCalculate;
+    @Autowired
+    private DoCalculate doCalculate;
 
-	public int div(int i, int j) {
-		return doCalculate.doDiv(i, j);
-	}
+    @WebLog()
+    public int div(int i, int j) {
+        return doCalculate.doDiv(i, j);
+    }
 
 }

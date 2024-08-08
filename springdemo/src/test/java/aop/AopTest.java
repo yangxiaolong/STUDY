@@ -13,6 +13,8 @@ public class AopTest {
 
     @org.junit.Test
     public void calc() {
+//        Thread.startVirtualThread(() -> System.out.println(Thread.currentThread().getName()));
+
         ApplicationContext ac = new AnnotationConfigApplicationContext(AopConfig.class);
         Calculate beanA = ac.getBean(Calculate.class);
         DoCalculate beanB = ac.getBean(DoCalculate.class);
