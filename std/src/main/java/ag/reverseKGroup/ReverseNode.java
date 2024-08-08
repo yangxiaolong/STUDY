@@ -5,17 +5,11 @@ import java.util.Arrays;
 public class ReverseNode {
 
 	public static Node reverse(Node head) {
-		/*
-		 * if (head == null || head.getNext() == null) { return head; } Node preNode =
-		 * null; Node curNode = head; Node nextNode = null; while (curNode != null) {
-		 * nextNode = curNode.getNext(); curNode.setNext(preNode); preNode = curNode;
-		 * curNode = nextNode; } return preNode;
-		 */
-		if (head == null || head.getNext() == null) {
+		if (head == null || head.next == null) {
 			return head;
 		}
 		Node newNode = reverse(head.getNext());
-		head.getNext().setNext(head);
+		head.next.setNext(head);
 		head.setNext(null);
 		return newNode;
 	}
