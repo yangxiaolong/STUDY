@@ -2,12 +2,12 @@ package ag.priorityqueue;
 
 import java.util.Arrays;
 
-public class PriorityQueue {
+public class MyPriorityQueue {
 
     private int[] array;
     private int size;
 
-    public PriorityQueue() {
+    public MyPriorityQueue() {
         // 队列初始长度32
         array = new int[32];
     }
@@ -92,13 +92,13 @@ public class PriorityQueue {
     }
 
     public static void main(String[] args) throws Exception {
-        PriorityQueue priorityQueue = new PriorityQueue();
-        priorityQueue.enQueue(3);
-        priorityQueue.enQueue(5);
-        priorityQueue.enQueue(10);
-        priorityQueue.enQueue(2);
-        priorityQueue.enQueue(7);
-        System.out.println("出队元素：" + priorityQueue.deQueue());
-        System.out.println("出队元素：" + priorityQueue.deQueue());
+        MyPriorityQueue myPriorityQueue = new MyPriorityQueue();
+        myPriorityQueue.enQueue(3);
+        myPriorityQueue.enQueue(5);
+        myPriorityQueue.enQueue(10);
+        myPriorityQueue.enQueue(2);
+        myPriorityQueue.enQueue(7);
+        System.out.println("出队元素：" + myPriorityQueue.deQueue());
+        System.out.println("出队元素：" + myPriorityQueue.deQueue());
     }
 }
