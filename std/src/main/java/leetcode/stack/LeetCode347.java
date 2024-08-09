@@ -42,7 +42,7 @@ public class LeetCode347 {
         }
 
         // Step 2: Use a priority queue to keep track of the top k frequent elements.
-        PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>((a1, a2) -> (a1[1] - a2[1]));
         for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
             minHeap.offer(new int[]{entry.getKey(), entry.getValue()});
             if (minHeap.size() > k) {
