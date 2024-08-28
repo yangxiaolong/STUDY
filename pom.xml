@@ -24,6 +24,7 @@
         <module>springdemo</module>
         <module>zk</module>
         <module>flink-cdc-test</module>
+        <module>plugin</module>
     </modules>
 
     <properties>
@@ -32,14 +33,7 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-        <!--<dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>-->
+
     </dependencies>
 
     <build>
