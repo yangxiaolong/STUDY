@@ -1,6 +1,5 @@
 package leetcode.stack;
 
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -38,17 +37,27 @@ public class LeetCode347 {
         // Step 1: Count the frequency of each element.
         Map<Integer, Integer> frequencyMap = new HashMap<>();
         for (int num : nums) {
-            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+            frequencyMap.merge(num, 1, Integer::sum);
+//            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
         }
 
         // Step 2: Use a priority queue to keep track of the top k frequent elements.
         PriorityQueue<int[]> minHeap = new PriorityQueue<>((a1, a2) -> (a1[1] - a2[1]));
-        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
-            minHeap.offer(new int[]{entry.getKey(), entry.getValue()});
-            if (minHeap.size() > k) {
+
+        int finalK = k;
+        frequencyMap.forEach((key, value) -> {
+            minHeap.offer(new int[]{key, value});
+            if (minHeap.size() > finalK) {
                 minHeap.poll(); // Remove the least frequent element if heap size exceeds k.
             }
-        }
+        });
+
+//        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+//            minHeap.offer(new int[]{entry.getKey(), entry.getValue()});
+//            if (minHeap.size() > k) {
+//                minHeap.poll(); // Remove the least frequent element if heap size exceeds k.
+//            }
+//        }
 
         for (int[] ints : minHeap) {
             System.out.println(ints[0] + ":" + ints[1]);
