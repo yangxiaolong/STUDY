@@ -14,7 +14,7 @@ public class StreamTest4 {
         Stream<String> stream = Stream.of("hello", "world", "helloworld");
 //        String[] strArr1 = stream.toArray(length -> new String[length]);
         String[] strArr = stream.toArray(String[]::new);
-        List.of(stream).forEach(System.out::println);
+        stream.forEach(System.out::println);
 
         Stream<String> stream2 = Stream.of("hello", "world", "helloworld");
 //        List<String> list = stream2.collect(Collectors.toList());

@@ -3,6 +3,7 @@ package aop;
 import com.willow.aop.Calculate;
 import com.willow.aop.DoCalculate;
 import com.willow.config.AopConfig;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -11,7 +12,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class AopTest {
 
-    @org.junit.Test
+    @Test
     public void calc() {
 //        Thread.startVirtualThread(() -> System.out.println(Thread.currentThread().getName()));
 
