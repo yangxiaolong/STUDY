@@ -4,3 +4,9 @@ spring:
     username: root
     password: 123456
     type: com.mysql.cj.jdbc.MysqlConnectionPoolDataSource
+  aop:
+    proxy-target-class: false
+
+logging:
+  level:
+    net.ttddyy.dsproxy.listener: trace

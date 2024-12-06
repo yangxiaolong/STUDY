@@ -1,0 +1,16 @@
+CREATE TABLE USER_MY (
+    name VARCHAR(255) NULL,
+    pwd VARCHAR(255) NULL,
+    age INT
+);
+
+CREATE TABLE ROLE (
+    name VARCHAR(255) NULL
+);
+
+
+------------------------
+select * from USER_MY;
+select * from ROLE;
+
+delete from USER_MY;  delete from ROLE;
