@@ -11,7 +11,18 @@ import org.springframework.util.ReflectionUtils;
 import java.lang.reflect.Field;
 
 /**
+ * https://mp.weixin.qq.com/s/i1kpJP4pYEVSfqhz7AJPgg
+ * --不懂SpringApplication生命周期事件？那就等于不会Spring Boot嘛
+ *
+ *
+ * <p>
  * https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzI0MTUwOTgyOQ==&action=getalbum&album_id=1727585247963201537&scene=173&subscene=&sessionid=svr_c307f6227ee&enterid=1734527720&from_msgid=2247484810&from_itemidx=1&count=3&nolastread=1#wechat_redirect
+ * -- [YourBatman]-Spring配置类
+ *
+ *
+ * <p>
+ * https://mp.weixin.qq.com/s/0Qo8bEHp-oUQ-n11NiIo9Q
+ * --【方向盘】YourBatman原创技术专栏
  */
 public class AppConfigTest1 {
 
