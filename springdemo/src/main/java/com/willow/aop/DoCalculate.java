@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class DoCalculate {
 
 	@Autowired
-	private Calculate calculate;
+	private CalculateInterface calculate;
 
 	public int doDiv(int i, int j) {
 		return i / j;

@@ -1,6 +1,6 @@
 package aop;
 
-import com.willow.aop.Calculate;
+import com.willow.aop.CalculateInterface;
 import com.willow.aop.DoCalculate;
 import com.willow.config.AopConfig;
 import org.junit.Test;
@@ -17,9 +17,10 @@ public class AopTest {
 //        Thread.startVirtualThread(() -> System.out.println(Thread.currentThread().getName()));
 
         ApplicationContext ac = new AnnotationConfigApplicationContext(AopConfig.class);
-        Calculate beanA = ac.getBean(Calculate.class);
+        CalculateInterface beanA = ac.getBean(CalculateInterface.class);
         DoCalculate beanB = ac.getBean(DoCalculate.class);
         int divA = beanA.div(3, 1);
+//        int divA1 = beanA.div(3, 0);
         int divB = beanB.doDiv(4, 2);
         System.out.println(divA);
         System.out.println(divB);
