@@ -28,3 +28,7 @@ GET http://localhost:8080/user/OUT_REQUIRED_IN_NOT_SUPPORTED_ININ_REQUIRED
 
 ### 外部事务抛异常 回滚  内部事务提交 内内部事务 提交
 GET http://localhost:8080/user/OUT_REQUIRED_EXEC_IN_NOT_SUPPORTED_ININ_REQUIRED
+
+
+###
+GET http://localhost:8080/event/publishEvent
