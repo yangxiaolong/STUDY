@@ -14,7 +14,6 @@ public class AopTest {
 
     @Test
     public void calc() {
-//        Thread.startVirtualThread(() -> System.out.println(Thread.currentThread().getName()));
 
         ApplicationContext ac = new AnnotationConfigApplicationContext(AopConfig.class);
         CalculateInterface beanA = ac.getBean(CalculateInterface.class);
