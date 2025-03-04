@@ -14,7 +14,6 @@ public class AopTest {
 
     @Test
     public void calc() {
-
         ApplicationContext ac = new AnnotationConfigApplicationContext(AopConfig.class);
         CalculateInterface beanA = ac.getBean(CalculateInterface.class);
         DoCalculate beanB = ac.getBean(DoCalculate.class);
