@@ -27,3 +27,17 @@ spring:
 logging:
   level:
     net.ttddyy.dsproxy.listener: trace
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus,hikaricp
+      base-path: /wtl
+    access:
+      default: read_only
+  endpoint:
+    health:
+      show-details: always

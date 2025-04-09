@@ -32,3 +32,12 @@ GET http://localhost:8080/user/OUT_REQUIRED_EXEC_IN_NOT_SUPPORTED_ININ_REQUIRED
 
 ###
 GET http://localhost:8080/event/publishEvent
+
+###
+GET http://localhost:8080/wtl
+
+###
+GET http://localhost:8080/wtl/metrics
+
+###
+GET http://localhost:8080/wtl/metrics/hikaricp.connections.active
