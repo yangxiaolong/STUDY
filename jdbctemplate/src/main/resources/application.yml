@@ -1,9 +1,24 @@
+#spring:
+#  datasource:
+#    url: jdbc:h2:file:D:/DEV/h2/demo;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password: password
+
+
 spring:
   datasource:
-    url: jdbc:h2:file:D:/DEV/h2/demo;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    driver-class-name: org.h2.Driver
-    username: sa
-    password: password
+    hikari:
+      maximum-pool-size: 21
+      connection-timeout: 300001
+      idle-timeout: 600001
+      max-lifetime: 1800001
+      jdbc-url: jdbc:h2:file:D:/DEV/h2/demo;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      driver-class-name: org.h2.Driver
+      username: sa
+      password: password
+      pool-name: myHikari
+
   h2:
     console:
       enabled: true
