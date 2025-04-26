@@ -30,6 +30,7 @@
         <module>springdemo</module>
         <module>flink-cdc-test</module>
         <module>plugin</module>
+        <module>configuration</module>
     </modules>
 
     <build>
