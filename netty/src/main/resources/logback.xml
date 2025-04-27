@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Where are log files -->
+    <property name="LOG_HOME" value="./"/>
+    <!-- Console log output -->
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- 格式化输出：%d:表示日期 %thread:表示线程名 %-5level:级别从左显示5个字符宽度-->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] > %green(%-5level) %cyan(%logger{35}) - %m%n</pattern>
+        </encoder>
+    </appender>
+    <root level="info">
+        <appender-ref ref="Console"/>
+    </root>
+</configuration>

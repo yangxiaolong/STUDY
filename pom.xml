@@ -26,7 +26,7 @@
         <module>jdbctemplate</module>
         <module>mybatis-spring</module>
         <module>mybatisdemo</module>
-        <module>nettypro</module>
+        <module>netty</module>
         <module>springdemo</module>
         <module>flink-cdc-test</module>
         <module>plugin</module>
