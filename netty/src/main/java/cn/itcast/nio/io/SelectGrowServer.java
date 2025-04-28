@@ -1,6 +1,5 @@
 package cn.itcast.nio.io;
 
-import cn.itcast.nio.bytedemo.ByteBufferUtil;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -98,7 +97,6 @@ public class SelectGrowServer {
                     target.put(buffer.get());
                 }
                 // 打印结果
-                ByteBufferUtil.debugAll(target);
             }
         }
         // 切换为写模式，但是缓冲区可能未读完，这里需要使用compact
