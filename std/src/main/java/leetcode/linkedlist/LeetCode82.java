@@ -24,20 +24,39 @@ public class LeetCode82 {
             return head;
         }
 
-        ListNode dummy = new ListNode(-101, head);
+        ListNode dummy = new ListNode(-1, head);
         ListNode cur = dummy;
         while (cur.next != null && cur.next.next != null) {
             if (cur.next.val == cur.next.next.val) {
                 int x = cur.next.val;
                 while (cur.next != null && cur.next.val == x) {
+                    // 跳过当前节点
                     cur.next = cur.next.next;
                 }
             } else {
+                // 保留当前节点
                 cur = cur.next;
             }
         }
 
         return dummy.next;
+    }
+
+    public static void main(String[] args) {
+        ListNode n1 = new ListNode(1);
+        ListNode n2 = new ListNode(1);
+        ListNode n3 = new ListNode(2);
+        ListNode n4 = new ListNode(2);
+        ListNode n5 = new ListNode(4);
+        ListNode n6 = new ListNode(4);
+        ListNode n7 = new ListNode(5);
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        n4.next = n5;
+        n5.next = n6;
+        n6.next = n7;
+        System.out.println(deleteDuplicates(n1));
     }
 
     public static ListNode deleteDuplicates2(ListNode head) {
@@ -56,23 +75,6 @@ public class LeetCode82 {
             cur = cur.next;
         }
         return dummy.next;
-    }
-
-    public static void main(String[] args) {
-        ListNode n1 = new ListNode(1);
-        ListNode n2 = new ListNode(1);
-        ListNode n3 = new ListNode(2);
-        ListNode n4 = new ListNode(2);
-        ListNode n5 = new ListNode(4);
-        ListNode n6 = new ListNode(4);
-        ListNode n7 = new ListNode(5);
-        n1.next = n2;
-        n2.next = n3;
-        n3.next = n4;
-        n4.next = n5;
-        n5.next = n6;
-        n6.next = n7;
-        System.out.println(deleteDuplicates2(n1));
     }
 
 }

@@ -2,6 +2,8 @@ package leetcode.linkedlist;
 
 import leetcode.ListNode;
 
+import java.util.Arrays;
+
 /**
  * @auther yangxiaolong
  * @create 2024/7/30
@@ -81,9 +83,16 @@ public class LeetCode23 {
     }
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        ListNode dummy = new ListNode(-1);
+        if (list1 == null) {
+            return list2;
+        }
+        if (list2 == null) {
+            return list1;
+        }
 
+        ListNode dummy = new ListNode();
         ListNode tail = dummy;
+
         while (list1 != null && list2 != null) {
             if (list1.val <= list2.val) {
                 tail.next = list1;
@@ -96,7 +105,33 @@ public class LeetCode23 {
         }
 
         tail.next = list1 == null ? list2 : list1;
+
         return dummy.next;
+    }
+
+    public static void main(String[] args) {
+        ListNode l1 = new ListNode(1);
+        ListNode l2 = new ListNode(2);
+        ListNode l3 = new ListNode(4);
+        l1.next = l2;
+        l2.next = l3;
+
+        ListNode l4 = new ListNode(1);
+        ListNode l5 = new ListNode(3);
+        ListNode l6 = new ListNode(4);
+        l4.next = l5;
+        l5.next = l6;
+
+        ListNode l7 = new ListNode(5);
+        l7.next = new ListNode(6);
+
+        ListNode[] lists = new ListNode[]{l1, l4, l7};
+        LeetCode23 leetCode23 = new LeetCode23();
+//        ListNode listNode = leetCode23.mergeKLists(lists);
+//        System.out.println(listNode);
+
+        ListNode listNode = leetCode23.mergeKListsLoop(lists);
+        System.out.println(listNode);
     }
 
 }

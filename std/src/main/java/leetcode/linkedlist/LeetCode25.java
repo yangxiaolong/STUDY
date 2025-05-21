@@ -27,6 +27,7 @@ public class LeetCode25 {
     public static ListNode reverseKGroup(ListNode head, int k) {
         ListNode dummy = new ListNode(-1, head);
         ListNode pre = dummy;
+
         while (true) {
             ListNode tail = pre;
             for (int i = 1; i <= k; i++) {
@@ -40,7 +41,7 @@ public class LeetCode25 {
             ListNode next = tail.next;
             tail.next = null;
             pre.next = null;
-            reverse(h);
+            ListNode.reverse(h);
             pre.next = tail;
             h.next = next;
 
@@ -48,26 +49,30 @@ public class LeetCode25 {
         }
     }
 
-    private static ListNode reverse(ListNode head) {
-        ListNode pre = null;
-        ListNode cur = head;
-        ListNode next;
-        while (cur != null) {
-            next = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = next;
-        }
-        return pre;
+    public static void main(String[] args) {
+        ListNode n1 = new ListNode(1);
+        ListNode n2 = new ListNode(2);
+        ListNode n3 = new ListNode(3);
+        ListNode n4 = new ListNode(4);
+        ListNode n5 = new ListNode(5);
+        ListNode n6 = new ListNode(6);
+        ListNode n7 = new ListNode(7);
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        n4.next = n5;
+        n5.next = n6;
+        n6.next = n7;
+        ListNode n = reverseKGroup(n1, 3);
+        System.out.println(n.toString());
     }
 
     public static ListNode reverseKGroup2(ListNode head, int k) {
         ListNode dummy = new ListNode(-1, head);
-
         ListNode pre = dummy;
-        while (pre != null) {
 
-            // check nodessize >= k
+        while (pre != null) {
+            // check nodes size >= k
             int step = k;
             ListNode tail = pre;
             while (step-- > 0) {
@@ -90,24 +95,6 @@ public class LeetCode25 {
         }
 
         return dummy.next;
-    }
-
-    public static void main(String[] args) {
-        ListNode n1 = new ListNode(1);
-        ListNode n2 = new ListNode(2);
-        ListNode n3 = new ListNode(3);
-        ListNode n4 = new ListNode(4);
-        ListNode n5 = new ListNode(5);
-        ListNode n6 = new ListNode(6);
-        ListNode n7 = new ListNode(7);
-        n1.next = n2;
-        n2.next = n3;
-        n3.next = n4;
-        n4.next = n5;
-        n5.next = n6;
-        n6.next = n7;
-        ListNode n = reverseKGroup2(n1, 3);
-        System.out.println(n.toString());
     }
 
 }

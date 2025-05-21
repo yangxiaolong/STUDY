@@ -48,32 +48,43 @@ public class LeetCode19 {
         return dummy.next;
     }
 
-    public ListNode removeNthFromEnd3(ListNode head, int n) {
+    public static ListNode removeNthFromEnd2(ListNode head, int n) {
+        //1->2->3->4->5 n=2
+
+        // 1. init dummy, f ,s
+        // d->1->2->3->4->5
+        // fs
         ListNode dummy = new ListNode(-1, head);
-        ListNode fast = dummy;
-        ListNode slow = dummy;
+        ListNode f = dummy;
+        ListNode s = dummy;
 
-        // move fast n step  快指针移动 n 步
+        // 2. f move n step
+        // d->1->2->3->4->5
+        // s     f
         while (n-- > 0) {
-            fast = fast.next;
+            f = f.next;
         }
 
-        // move fast to tail, then slow is previous node of last n
-        while (fast.next != null) {
-            fast = fast.next;
-            slow = slow.next;
+        // 3. move f and s at the same time, until f move to tail
+        // d->1->2->3->4->5
+        //          s     f
+        while (f.next != null) {
+            f = f.next;
+            s = s.next;
         }
 
-        // remove slow.next = slow.next.next
-        slow.next = slow.next.next;
+        // 4. remove s.next
+        s.next = s.next.next;
+
+        // 5. return dummy.next
         return dummy.next;
     }
 
     public static void main(String[] args) {
-        ListNode n1 = new ListNode(1);
-        removeNthFromEnd(n1, 1);
+        ListNode m1 = new ListNode(1);
+        removeNthFromEnd(m1, 1);
 
-        /*ListNode n1 = new ListNode(1);
+        ListNode n1 = new ListNode(1);
         ListNode n2 = new ListNode(2);
         ListNode n3 = new ListNode(3);
         ListNode n4 = new ListNode(4);
@@ -82,7 +93,8 @@ public class LeetCode19 {
         n2.next = n3;
         n3.next = n4;
         n4.next = n5;
-        removeNthFromEnd2(n1, 2);*/
+        ListNode listNode = removeNthFromEnd2(n1, 2);
+        System.out.println(listNode);
     }
 
 }

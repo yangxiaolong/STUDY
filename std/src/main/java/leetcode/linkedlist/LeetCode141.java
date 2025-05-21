@@ -22,7 +22,7 @@ public class LeetCode141 {
     评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。注意：pos 不作为参数进行传递 。仅仅是为了标识链表的实际情况。
     如果链表中存在环 ，则返回 true 。 否则，返回 false 。
     */
-    public boolean hasCycle(ListNode head) {
+    public static boolean hasCycle(ListNode head) {
         if (head == null) {
             return false;
         }
@@ -37,7 +37,7 @@ public class LeetCode141 {
         return false;
     }
 
-    public boolean hasCycleSlowFastPoint(ListNode head) {
+    public static boolean hasCycleSlowFastPoint(ListNode head) {
         if (head == null || head.next == null) {
             return false;
         }
@@ -52,6 +52,22 @@ public class LeetCode141 {
             }
         }
         return false;
+    }
+
+    public static void main(String[] args) {
+        ListNode n1 = new ListNode(3);
+        ListNode n2 = new ListNode(2);
+        ListNode n3 = new ListNode(0);
+        ListNode n4 = new ListNode(-4);
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        n4.next = n2;
+        boolean b = hasCycle(n1);
+        System.out.println(b);
+
+        boolean b1 = hasCycleSlowFastPoint(n1);
+        System.out.println(b1);
     }
 
 }

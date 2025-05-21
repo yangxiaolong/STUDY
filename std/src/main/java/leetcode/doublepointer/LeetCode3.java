@@ -40,18 +40,19 @@ public class LeetCode3 {
     public static int lengthOfLongestSubstring(String s) {
         Set<Character> set = new HashSet<>();
         int res = 0;
+
         char[] cs = s.toCharArray();
-        for (int left = 0, right = 0; right < cs.length; right++) {
-            char ch = cs[right];
-
+        for (int l = 0, r = 0; r < cs.length; r++) {
+            char ch = cs[r];
             while (set.contains(ch)) {
-                set.remove(cs[left]);
-                left++;
+                set.remove(ch);
+                l++;
             }
-
             set.add(ch);
-            res = Math.max(res, right - left + 1);
+
+            res = Math.max(res, r - l + 1);
         }
+
         return res;
     }
 

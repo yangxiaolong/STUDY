@@ -32,18 +32,29 @@ public class LeetCode24 {
         }
 
         ListNode dummy = new ListNode(-1, head);
-        ListNode pre = dummy;
-        while (pre.next != null && pre.next.next != null) {
-            ListNode node1 = pre.next;
-            ListNode node2 = pre.next.next;
+        ListNode cur = dummy;
+        ListNode n1;
+        ListNode n2;
+        while ((n1 = cur.next) != null && (n2 = cur.next.next) != null) {
+            cur.next = n2;
+            n1.next = n2.next;
+            n2.next = n1;
 
-            pre.next = node2;
-            node1.next = node2.next;
-            node2.next = node1;
-            pre = node1;
+            cur = n1;
         }
 
         return dummy.next;
+    }
+
+    public static void main(String[] args) {
+        ListNode l1 = new ListNode(1);
+        ListNode l2 = new ListNode(2);
+        ListNode l3 = new ListNode(3);
+        ListNode l4 = new ListNode(4);
+        l1.next = l2;
+        l2.next = l3;
+        l3.next = l4;
+        System.out.println(swapPairs(l1));
     }
 
     public static ListNode swapPairs2(ListNode head) {

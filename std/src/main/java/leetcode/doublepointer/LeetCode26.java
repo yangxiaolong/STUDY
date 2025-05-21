@@ -47,18 +47,31 @@ public class LeetCode26 {
     解释：函数应该返回新的长度 5 ， 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4 。
     不需要考虑数组中超出新长度后面的元素。
      */
-    public int removeDuplicates(int[] nums) {
+    public static int removeDuplicates(int[] nums) {
         int len = nums.length;
         if (len == 0) return 0;
-        int fast = 1, slow = 1;
-        while (fast < len) {
-            if (nums[fast] != nums[fast - 1]) {
-                nums[slow] = nums[fast];
-                slow++;
+
+        // [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+        //     sf
+        int f = 1, s = 1;
+
+        while (f < len) {
+            if (nums[f] != nums[f - 1]) {
+                nums[s] = nums[f];
+                s++;
             }
-            fast++;
+            f++;
         }
-        return slow;
+
+        return s;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 1, 2};
+        System.out.println(removeDuplicates(nums));
+
+        int[] nums1 = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+        System.out.println(removeDuplicates(nums1));
     }
 
 }

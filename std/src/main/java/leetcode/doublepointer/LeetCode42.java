@@ -32,7 +32,7 @@ public class LeetCode42 {
                 if (s.isEmpty()) {
                     break;
                 }
-                // heigh = min(h[s.peek()], h[i]) - h[mid]
+                // height = min(h[s.peek()], h[i]) - h[mid]
                 int height = Math.min(h[s.peek()], h[i]) - h[mid];
                 // wide = i - s.peek() - 1
                 int wide = i - s.peek() - 1;

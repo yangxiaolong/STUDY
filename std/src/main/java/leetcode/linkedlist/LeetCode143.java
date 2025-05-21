@@ -39,7 +39,7 @@ public class LeetCode143 {
         mid.next = null;
 
         //reverse the second half
-        ListNode second = reverse(midNext);
+        ListNode second = ListNode.reverse(midNext);
 
         //merge two list
         mergeTwoList(head, second);
@@ -58,22 +58,6 @@ public class LeetCode143 {
             l1 = l1n;
             l2 = l2n;
         }
-    }
-
-    public static ListNode reverse(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode pre = null;
-        ListNode cur = head;
-        ListNode next;
-        while (cur != null) {
-            next = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = next;
-        }
-        return pre;
     }
 
     public static ListNode findMid(ListNode head) {
