@@ -63,37 +63,47 @@ public class LeetCode25 {
         n4.next = n5;
         n5.next = n6;
         n6.next = n7;
-        ListNode n = reverseKGroup(n1, 3);
+        ListNode n = reverseKGroup3(n1, 3);
         System.out.println(n.toString());
     }
 
-    public static ListNode reverseKGroup2(ListNode head, int k) {
-        ListNode dummy = new ListNode(-1, head);
-        ListNode pre = dummy;
+    public static ListNode reverseKGroup3(ListNode head, int k) {
+        // 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8   k = 3
+        // 3 -> 2 -> 1 -> 6 -> 5 -> 4 -> 7 -> 8
 
-        while (pre != null) {
-            // check nodes size >= k
+        //1. init dummy
+        // dummy -> (1 -> 2 -> 3) -> (4 -> 5 -> 6) -> 7 -> 8
+        // p
+
+        // dummy -> (1 -> 2 -> 3) -> (4 -> 5 -> 6) -> 7 -> 8
+        // p         c         t
+        ListNode dummy = new ListNode(-1, head);
+        ListNode p = dummy;
+
+        while (p != null) {
+            //2. check if ListNode size >= k, if not return dummy.next
+            ListNode t = p.next;
             int step = k;
-            ListNode tail = pre;
             while (step-- > 0) {
-                tail = tail.next;
-                if (tail == null) {
+                if ((t = t.next) == null) {
                     return dummy.next;
                 }
             }
 
-            ListNode cur = pre.next;// 注意这一句代码
+            //3. use `head insert` to reverse, total (k-1) step
+            ListNode c = p.next;
             step = k - 1;
             while (step-- > 0) {
-                ListNode next = cur.next;
-                cur.next = next.next;
-                next.next = pre.next;
-                pre.next = next;
+                ListNode n = c.next;
+                c.next = n.next;
+                n.next = p.next;
+                p.next = n;
             }
 
-            pre = cur;
+            p = c;
         }
 
+        //4. return dummy.next;
         return dummy.next;
     }
 
