@@ -45,7 +45,8 @@ public class LeetCode3 {
         for (int l = 0, r = 0; r < cs.length; r++) {
             char ch = cs[r];
             while (set.contains(ch)) {
-                set.remove(ch);
+                set.remove(cs[l]);
+                System.out.println(s.substring(l, r));
                 l++;
             }
             set.add(ch);
