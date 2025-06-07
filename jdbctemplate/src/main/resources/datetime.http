@@ -1,0 +1,13 @@
+###
+GET http://localhost:8080/user/date?localDateTime=2025-06-07
+
+###
+POST http://localhost:8080/user/datetime
+Content-Type: application/json
+
+{
+  "jsonFormatTime": "2025-06-07 01:00:02",
+  "localDate": "2025-06-06",
+  "localDateTime2": "2025-06-08T12:02:04Z",
+  "localDateTime": "2025-06-07 01:00:04"
+}
