@@ -1,9 +1,12 @@
 package jdbc.controller;
 
+import jakarta.annotation.Resource;
 import jdbc.entity.DateUser;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.support.FormattingConversionService;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Instant;
 import java.time.LocalDate;
 
 /**
@@ -13,6 +16,9 @@ import java.time.LocalDate;
 @RestController
 @RequestMapping("/user")
 public class DateUserController {
+
+    @Resource
+    FormattingConversionService conversionService;
 
     @GetMapping("/date")
     public String date(@RequestParam("localDateTime")
@@ -24,6 +30,8 @@ public class DateUserController {
     @PostMapping("/datetime")
     public String datetime(@RequestBody DateUser dateUser) {
         System.out.println(dateUser);
+        Instant convert = conversionService.convert(System.currentTimeMillis(), Instant.class);
+        System.out.println(convert);
         return "OK";
     }
 

@@ -26,6 +26,7 @@ spring:
 
 logging:
   level:
+    org.springframework: trace
     net.ttddyy.dsproxy.listener: trace
 
 
