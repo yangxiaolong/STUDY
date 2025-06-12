@@ -12,3 +12,10 @@ Content-Type: application/json
   "localDateTime": "2025-06-07 01:00:04",
   "instant": 1
 }
+
+
+###
+GET http://localhost:8080/validation/invalid-return
+
+###
+GET http://localhost:8080/validation/valid-return

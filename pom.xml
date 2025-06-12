@@ -22,15 +22,15 @@
     </properties>
 
     <modules>
-        <module>std</module>
+        <module>configuration</module>
+        <module>flink-cdc-test</module>
         <module>jdbctemplate</module>
         <module>mybatis-spring</module>
         <module>mybatisdemo</module>
         <module>netty</module>
-        <module>springdemo</module>
-        <module>flink-cdc-test</module>
         <module>plugin</module>
-        <module>configuration</module>
+        <module>springdemo</module>
+        <module>std</module>
     </modules>
 
     <build>
