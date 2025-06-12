@@ -1,13 +1,10 @@
 package cn.itcast.nio.filechannel;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
 
-@Slf4j
 public class TestFile2GChannel {
     public static void main(String[] args) {
         try (FileInputStream fis = new FileInputStream("from.txt");

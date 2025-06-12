@@ -1,14 +1,16 @@
 package cn.itcast.nio.bytedemo;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
-@Slf4j
 public class TestByteBuffer {
+
+    private final static Logger log = LoggerFactory.getLogger(TestByteBuffer.class);
 
     public static void main(String[] args) {
         //FileChannel
