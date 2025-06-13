@@ -1,4 +1,4 @@
-package aop.jackson;
+package jackson.jsonparser;
 
 import com.fasterxml.jackson.core.*;
 import com.fasterxml.jackson.core.type.ResolvedType;

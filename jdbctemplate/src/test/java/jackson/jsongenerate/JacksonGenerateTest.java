@@ -1,3 +1,5 @@
+package jackson.jsongenerate;
+
 import com.fasterxml.jackson.core.JsonEncoding;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
@@ -5,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class JacksonTest {
+public class JacksonGenerateTest {
 
     @Test
     public void test1() throws IOException {

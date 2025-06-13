@@ -1,10 +1,11 @@
-package aop.jackson;
+package jackson.jsonparser;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import validation.basic.Person;
 
 import java.io.IOException;
 import java.util.ServiceLoader;
@@ -12,7 +13,7 @@ import java.util.ServiceLoader;
 /**
  * @author Dragon
  */
-public class JacksonTest {
+public class JacksonParserTest {
 
     @Test
     public void test1() throws IOException {
@@ -70,10 +71,10 @@ public class JacksonTest {
     @Test
     public void test4() throws IOException {
         String jsonStr = """
-                {
-                "name" : "YourBarman", // 名字
-                "age" : 18 // 年龄
-                }""";
+            {
+            "name" : "YourBarman", // 名字
+            "age" : 18 // 年龄
+            }""";
 
         JsonFactory factory = new JsonFactory();
         try (JsonParser jsonParser = factory.createParser(jsonStr)) {

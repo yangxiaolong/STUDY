@@ -1,11 +1,11 @@
-package aop.jackson;
+package jackson.jsonparser;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -52,7 +52,7 @@ public class ObjectMapperTest {
         }}));
 
         System.out.println("----------写POJO----------");
-        System.out.println(objectMapper.writeValueAsString(new Person("A哥", 18)));
+        System.out.println(objectMapper.writeValueAsString(new Person("A哥", 18, null)));
     }
 
     @Test
