@@ -1,6 +1,5 @@
-package aop;
+package configuration;
 
-import fulllite.AppConfig;
 import org.junit.Test;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.BeanFactory;

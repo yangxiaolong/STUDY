@@ -1,5 +1,6 @@
-package aop;
+package configuration;
 
+import configuration.*;
 import org.junit.Test;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.BeanFactory;

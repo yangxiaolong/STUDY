@@ -1,4 +1,4 @@
-package aop;
+package configuration;
 
 public class Parent {
     

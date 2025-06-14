@@ -1,6 +1,5 @@
-package aop;
+package format;
 
-import formatter.Person;
 import org.junit.Test;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.converter.Converter;

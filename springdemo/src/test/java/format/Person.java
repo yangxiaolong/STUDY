@@ -1,4 +1,4 @@
-package formatter;
+package format;
 
 import org.springframework.format.Parser;
 import org.springframework.format.Printer;

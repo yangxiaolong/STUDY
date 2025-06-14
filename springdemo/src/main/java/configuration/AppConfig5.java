@@ -1,4 +1,4 @@
-package aop;
+package configuration;
 
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.context.annotation.Bean;
