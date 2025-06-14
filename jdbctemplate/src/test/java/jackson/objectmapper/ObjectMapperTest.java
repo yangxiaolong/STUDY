@@ -1,10 +1,11 @@
-package jackson.jsonparser;
+package jackson.objectmapper;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
+import jackson.jsonparser.Person;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -72,15 +73,35 @@ public class ObjectMapperTest {
         System.out.println(objectMapper.readValue("{\"name\":\"A哥\",\"age\":18}", Person.class));
     }
 
+    //「在解决此问题之前，我们得先对Java中的泛型擦除有所了解，至少知道如下两点结论：」
+    //
+    //Java 在编译时会在字节码里指令集之外的地方保留「部分」泛型信息
+    //泛型接口、类、方法定义上的所有泛型、成员变量声明处的泛型「都会」被保留类型信息，「其它地方」的泛型信息都会被擦除
     @Test
     public void test7() throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
 
         System.out.println("----------读集合类型----------");
-        List<Long> ids = objectMapper.readValue("[1,2,3]", new TypeReference<>() {
+        List<Long> ids = objectMapper.readValue("[1,2,3]", new TypeReference<List<Long>>() {
         });
 
         Long id = ids.get(0);
+        System.out.println(id);
+    }
+
+    @lombok.Data
+    private static class Data {
+        private List<Long> ids;
+    }
+
+    @Test
+    public void test6() throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        System.out.println("----------读集合类型----------");
+        Data data = objectMapper.readValue("{\"ids\" : [1,2,3]}", Data.class);
+
+        Long id = data.getIds().get(0);
         System.out.println(id);
     }
 
