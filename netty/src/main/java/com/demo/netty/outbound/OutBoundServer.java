@@ -1,5 +1,6 @@
-package com.demo.netty;
+package com.demo.netty.outbound;
 
+import com.demo.netty.ServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -11,7 +12,7 @@ import io.netty.util.concurrent.DefaultThreadFactory;
 
 import java.util.concurrent.Executors;
 
-public class Server {
+public class OutBoundServer {
 
     public static void main(String[] args) throws InterruptedException {
         NioEventLoopGroup bossGroup = new NioEventLoopGroup(1,
@@ -28,13 +29,12 @@ public class Server {
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) {
-                            ch.pipeline().addLast(new NettyServerHandler());
-                            ch.pipeline().addLast(new AuthHandler());
+                            ch.pipeline().addLast(new OutBoundHandlerA());
+                            ch.pipeline().addLast(new OutBoundHandlerB());
+                            ch.pipeline().addLast(new OutBoundHandlerC());
                         }
                     });
             System.out.println("netty server start...");
-//            bootstrap.bind(9001);
-//            bootstrap.bind(9002);
             ChannelFuture cf = bootstrap.bind(9000).sync();
             cf.channel().closeFuture().sync();
         } finally {
