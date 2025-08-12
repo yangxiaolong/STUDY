@@ -32,6 +32,7 @@
         <module>springdemo</module>
         <module>std</module>
         <module>httpexchange</module>
+        <module>spring-security</module>
     </modules>
 
     <build>

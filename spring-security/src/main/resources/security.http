@@ -1,0 +1,7 @@
+###
+访问 http://localhost:8080 可以看到首页
+尝试访问不同的端点：
+/public/message 可以直接访问
+/user/message 会跳转到登录页，使用 user/password 登录后可以访问
+/admin/message 使用 admin/admin 登录后可以访问
+

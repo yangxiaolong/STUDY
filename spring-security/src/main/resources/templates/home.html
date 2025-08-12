@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>首页</title>
+</head>
+<body>
+<h1>欢迎来到首页</h1>
+
+<!-- 使用控制器传递的认证状态 -->
+<div th:if="${isAuthenticated}">
+    <p>当前登录用户: <span th:text="${username}"></span></p>
+
+    <!-- 登出表单 -->
+    <form action="/logout" method="post">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <button type="submit">登出</button>
+    </form>
+</div>
+
+<p><a href="/public/message">查看公开信息</a></p>
+<p><a href="/user/message">查看用户信息</a> (需要登录)</p>
+<p><a href="/admin/message">查看管理员信息</a> (需要管理员权限)</p>
+
+<!-- 未登录状态 -->
+<div th:if="${!isAuthenticated}">
+    <p><a href="/login">登录</a></p>
+</div>
+</body>
+</html>
